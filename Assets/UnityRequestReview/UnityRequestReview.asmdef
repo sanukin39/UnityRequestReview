@@ -2,7 +2,8 @@
     "name": "UnityRequestReview",
     "rootNamespace": "",
     "references": [
-        "GUID:4139e191aa32f459e9eb2e331225ad7e"
+        "GUID:4139e191aa32f459e9eb2e331225ad7e",
+        "GUID:b4318b6f3695442c4983c360248781db"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
