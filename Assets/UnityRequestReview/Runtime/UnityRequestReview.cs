@@ -22,7 +22,7 @@ namespace URR
 
         public void RequestReview()
         {
-#if UNITY_EDITOR && false
+#if UNITY_EDITOR
             Debug.Log("Review Requested");
 #elif UNITY_IOS
 UnityEngine.iOS.Device.RequestStoreReview();
@@ -53,6 +53,6 @@ UnityEngine.iOS.Device.RequestStoreReview();
                 yield break;
             }
         }
-    }
 #endif
+    }
 }
