@@ -1,25 +1,58 @@
+using System.Collections;
+using Google.Play.Review;
+using UnityEngine;
+
 namespace URR
 {
-    public class UnityRequestReview
+    public class UnityRequestReview : MonoBehaviour
     {
-        private static IRequestReview _requestReview;
+        private static UnityRequestReview _instance;
+        public static UnityRequestReview Instance => _instance;
 
-        public static void RequestReview()
+        void Awake()
         {
-            _requestReview ??= GenerateRequestReview();
-            _requestReview.RequestReview();
+            if (_instance == null)
+            {
+                _instance = this;
+            }
+
+            DontDestroyOnLoad(gameObject);
         }
 
 
-        private static IRequestReview GenerateRequestReview()
+        public void RequestReview()
         {
-#if UNITY_IOS
-return new iOSRequestReview();
+#if UNITY_EDITOR && false
+            Debug.Log("Review Requested");
+#elif UNITY_IOS
+UnityEngine.iOS.Device.RequestStoreReview();
 #elif UNITY_ANDROID
-            return new AndroidRequestReview();
-#else
-                return new EditorRequestReview();
+            StartCoroutine(AndroidRequestReview());
 #endif
         }
+
+#if UNITY_ANDROID
+
+        private IEnumerator AndroidRequestReview()
+        {
+            var reviewManager = new ReviewManager();
+            var requestFlowOperation = reviewManager.RequestReviewFlow();
+            yield return requestFlowOperation;
+            if (requestFlowOperation.Error != ReviewErrorCode.NoError)
+            {
+
+                yield break;
+            }
+
+            var playReviewInfo = requestFlowOperation.GetResult();
+
+            var launchFlowOperation = reviewManager.LaunchReviewFlow(playReviewInfo);
+            yield return launchFlowOperation;
+            if (launchFlowOperation.Error != ReviewErrorCode.NoError)
+            {
+                yield break;
+            }
+        }
     }
+#endif
 }
