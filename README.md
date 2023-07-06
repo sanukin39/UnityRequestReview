@@ -14,3 +14,4 @@ Unity2020 or higher
 
 ## Import Google Review Package
 Please go to the [Package Download page](https://developers.google.com/unity/archive#play_in-app_review) and download the Unitypackage. Then, import it 
+![Preview](https://github.com/sanukin39/UnityRequestReview/blob/main/images/downloadpackage.png)
