@@ -18,3 +18,9 @@ Please go to the [Package Download page](https://developers.google.com/unity/arc
 
 ## Import this library
 Please go to the [Release Page](https://github.com/sanukin39/UnityRequestReview/releases) and download the latest package. Then, import it.
+
+## Implementation
+Create empty gameobject to root scene and attach UnityRequestReview script
+
+![Preview](https://github.com/sanukin39/UnityRequestReview/blob/main/images/addComponent.png)
+
