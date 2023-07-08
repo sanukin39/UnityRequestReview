@@ -2,6 +2,7 @@
 Simple Unity Request Review Wrapper
 
 ![Preview](https://github.com/sanukin39/UnityRequestReview/blob/main/images/preview.PNG)
+![Preview2](https://github.com/sanukin39/UnityRequestReview/blob/main/images/android.jpg)
 
 # Supported Platform
 Android, iOS
