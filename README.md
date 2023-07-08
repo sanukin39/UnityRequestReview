@@ -23,4 +23,10 @@ Please go to the [Release Page](https://github.com/sanukin39/UnityRequestReview/
 Create empty gameobject to root scene and attach UnityRequestReview script
 
 ![Preview](https://github.com/sanukin39/UnityRequestReview/blob/main/images/addComponent.png)
+## Request Review
+Display the request review in this line of code
+```
+UnityRequestReview.Instance.RequestReview();
+```
+
 
